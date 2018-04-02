@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!-- 	<bean id="employeeDao" class="beans.EmployeeDaoInMemoryImpl">
+	</bean> -->
+	<bean id="employeeService" class="beans.EmployeeServiceImpl">
+		<constructor-arg ref="employeeDao" />
+		<!-- <property name="employeeDao" ref="employeeDao" /> -->
+	</bean>
+	<bean id="employee1" class="beans.Employee">
+	<property name="employeeID" value="1" />
+	<property name="employeeName" value="Dylan" />
+	<property name="employeeEmployer" value="Wells Fargo" />
+	<property name="salary" value="40000" />
+	</bean>
+	
+	<bean id="employee2" class="beans.Employee">
+	<property name="employeeID" value="2" />
+	<property name="employeeName" value="Sierra" />
+		<property name="employeeEmployer" value="Principal" />
+	<property name="salary" value="75000" />
+	</bean>
+	<bean id="employeeDao" class="beans.EmployeeDaoInMemoryImpl">
+	<property name="employeeMap">
+	<map>
+	<entry key="1" value-ref="employee1"/>
+	<entry key="2" value-ref="employee2"/>
+	</map>
+	</property>
+	</bean>
+
+</beans>
